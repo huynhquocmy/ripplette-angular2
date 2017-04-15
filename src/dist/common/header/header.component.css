@@ -1,0 +1,33 @@
+.header-container {
+  display: flex;
+  background: white;
+  z-index: 999;
+  box-shadow: 0 0 5px 0 rgba(22, 45, 61, 0.5);
+  position: relative; }
+  .header-container img {
+    width: 150px;
+    display: block;
+    cursor: pointer;
+    padding: 5px 10px; }
+
+.flex-grow {
+  flex-grow: 1; }
+
+.header-user {
+  position: relative;
+  padding: 20px;
+  text-align: right; }
+  .header-user:hover .header-user-panel {
+    display: block; }
+
+.header-user-panel {
+  position: absolute;
+  right: 0;
+  top: 60px;
+  text-align: right;
+  background-color: white;
+  display: none; }
+
+.header-user-item {
+  padding: 10px 20px;
+  cursor: pointer; }

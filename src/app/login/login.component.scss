@@ -1,0 +1,21 @@
+.login-component {
+	background-color: gray;
+	height: 100%;
+	background-image:url("app/assets/images/ripples.jpeg");
+	background-repeat:no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+.login {
+    position: absolute;
+    top: calc(50% - 200px);
+    left: calc(50% - 200px);
+}
+
+.login__items {
+    margin: 20px 0;
+    input {
+    	width: 100%;
+    }
+}
