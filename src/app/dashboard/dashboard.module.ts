@@ -2,17 +2,17 @@ import { NgModule }       from '@angular/core';
 import { CommonModule }   from '@angular/common';
 import { FormsModule }    from '@angular/forms';
 import { DashboardComponent } from './dashboard.component';
-import { HeaderModule } from '../common/header/header.module';
 import { DashboardService } from './dashboard.service';
+import { ProjectPipe } from './dashboard.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    HeaderModule
+    FormsModule
   ],
   declarations: [
-  	DashboardComponent
+  	DashboardComponent,
+  	ProjectPipe
   ],
   providers: [DashboardService]
 })

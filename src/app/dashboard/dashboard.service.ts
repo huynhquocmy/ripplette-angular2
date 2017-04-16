@@ -15,9 +15,10 @@ export class DashboardService {
 	constructor(private http: HttpService) {}
 
 	getProjects() {
-		return this.http.get(this.projectsUrl).map(response => {
-			console.log(response);
-		})
+		return this.http.get(this.projectsUrl).map((response: Response) => {
+			let body = response.json();
+			return body.data || {}
+		});
 	}
 
 	ngOnInit() {

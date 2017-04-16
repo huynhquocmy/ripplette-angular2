@@ -14,19 +14,17 @@ var Subject_1 = require("rxjs/Subject");
 var router_1 = require("@angular/router");
 var HeaderService = (function () {
     function HeaderService(router) {
+        var _this = this;
         this.router = router;
         this.subject = new Subject_1.Subject();
         this.keepAfterNavigationChange = false;
-        var user = JSON.parse(localStorage.getItem('currentUser'));
-        this.subject.next(user);
+        router.events.subscribe(function (event) {
+            if (event instanceof router_1.NavigationStart) {
+                var user = JSON.parse(localStorage.getItem('currentUser'));
+                _this.subject.next(user);
+            }
+        });
     }
-    HeaderService.prototype.success = function (message) {
-        var user = JSON.parse(localStorage.getItem('currentUser'));
-        this.subject.next(user);
-    };
-    HeaderService.prototype.error = function (message) {
-        this.subject.next({ type: 'error', text: message });
-    };
     HeaderService.prototype.getLoggedUser = function () {
         var user = JSON.parse(localStorage.getItem('currentUser'));
         this.subject.next(user);

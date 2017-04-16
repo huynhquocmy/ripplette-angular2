@@ -14,10 +14,12 @@ var dashboard_service_1 = require("./dashboard.service");
 var DashboardComponent = (function () {
     function DashboardComponent(dashboardService) {
         this.dashboardService = dashboardService;
+        this.projects = [];
     }
     DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.dashboardService.getProjects().subscribe(function (data) {
-            console.log(data);
+            _this.projects = data;
         }, function (error) {
         });
     };

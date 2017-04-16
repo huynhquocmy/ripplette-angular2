@@ -1,6 +1,13 @@
 body {
+  /*background-color: powderblue;*/
+  font-family: lato, Roboto, "Helvetica Neue", sans-serif;
+  color: #393939;
+  font-weight: 400;
   margin: 0;
-  background-color: powderblue; }
+  padding: 0; }
+
+div, button {
+  outline: 0; }
 
 .flex-grow {
   flex-grow: 1; }

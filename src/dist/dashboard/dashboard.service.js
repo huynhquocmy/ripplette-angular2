@@ -21,7 +21,8 @@ var DashboardService = (function () {
     }
     DashboardService.prototype.getProjects = function () {
         return this.http.get(this.projectsUrl).map(function (response) {
-            console.log(response);
+            var body = response.json();
+            return body.data || {};
         });
     };
     DashboardService.prototype.ngOnInit = function () {

@@ -11,18 +11,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var header_service_1 = require("./header.service");
+var router_1 = require("@angular/router");
 var HeaderComponent = (function () {
-    function HeaderComponent(headerService) {
+    function HeaderComponent(headerService, router) {
         this.headerService = headerService;
-        this.user = {};
+        this.router = router;
     }
     HeaderComponent.prototype.ngOnInit = function () {
         var _this = this;
-        // this.user = JSON.parse(localStorage.getItem('currentUser'));
         this.headerService.getLoggedUser().subscribe(function (user) {
-            console.log(user);
             _this.user = user;
         });
+    };
+    HeaderComponent.prototype.logout = function () {
+        localStorage.removeItem('currentUser');
+        this.router.navigate(['login']);
     };
     return HeaderComponent;
 }());
@@ -32,7 +35,7 @@ HeaderComponent = __decorate([
         selector: 'layout-header',
         styleUrls: ['dist/common/header/header.component.css']
     }),
-    __metadata("design:paramtypes", [header_service_1.HeaderService])
+    __metadata("design:paramtypes", [header_service_1.HeaderService, router_1.Router])
 ], HeaderComponent);
 exports.HeaderComponent = HeaderComponent;
 ;

@@ -13,9 +13,41 @@
     left: calc(50% - 200px);
 }
 
-.login__items {
+.login-items {
     margin: 20px 0;
     input {
-    	width: 100%;
+        width: 100%;
+        background-color: transparent;
+        padding: 20px 25px;
+        line-height: 18px;
+        font-size: 18px;
+        height: auto;
+        margin-bottom: 22px;
+        border: 1px solid #fff;
+        color: #fff;
+        border-radius: 0;
     }
+}
+.login-button {
+    position: relative;
+    button {
+        margin: 0px auto;
+        display: block;
+        width: 100%;
+        padding: 20px 45px;
+        line-height: 16px;
+        font-size: 16px;
+        background-color: #4b89dc;
+        text-transform: none;
+        font-family: lato;
+    }
+}
+.login-remember {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.login-forgot-pass {
+    color: #FFFFFF;
+    cursor: pointer;
 }

@@ -10,17 +10,12 @@ export class HeaderService {
 	keepAfterNavigationChange = false;
 
 	constructor(private router: Router) {
-		let user = JSON.parse(localStorage.getItem('currentUser'));
-		this.subject.next(user);
-	}
-
-	success(message: string) {
-		let user = JSON.parse(localStorage.getItem('currentUser'));
-		this.subject.next(user);
-	}
-
-	error(message: string) {
-		this.subject.next({ type: 'error', text: message });
+		router.events.subscribe(event => {
+			if (event instanceof NavigationStart) {
+				let user = JSON.parse(localStorage.getItem('currentUser'));
+				this.subject.next(user);
+			}
+		})
 	}
 
 	getLoggedUser(): Observable<any> {

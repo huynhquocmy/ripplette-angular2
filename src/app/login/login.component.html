@@ -1,22 +1,22 @@
 <div class="login-component">
 	<div class="login">
-		<div class="login__header">
+		<div class="login-header">
             <img src="/app/assets/images/logo_white.svg" />
 		</div>
-		<div class="login__items">
-			<div class="login__item">
-				<input [(ngModel)]="model.email" #email="ngModel" class="login__input" type="text" placeholder="Email" autocomplete="off">
+		<div class="login-items">
+			<div class="login-item">
+				<input [(ngModel)]="model.email" #email="ngModel" class="login-input" type="text" placeholder="Email" autocomplete="off">
 			</div>
-			<div class="login__item">
-				<input [(ngModel)]="model.password" #password="ngModel" class="login__input"  type="password" placeholder="Password">
+			<div class="login-item">
+				<input [(ngModel)]="model.password" #password="ngModel" class="login-input"  type="password" placeholder="Password">
 			</div>
 		</div>
 
-		<div class="login__button">
+		<div class="login-button">
 			<button class="btn--primary" (click)="login()">Login</button>
 		</div>
-		<div class="login__remember">
-			<label class="login__forgot-pass" ng-click="forgotPasswordForm();">Forgot password?</label>
+		<div class="login-remember">
+			<label class="login-forgot-pass" ng-click="forgotPasswordForm();">Forgot password?</label>
 		</div>
 	</div>
 </div>

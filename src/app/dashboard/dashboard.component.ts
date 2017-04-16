@@ -6,11 +6,13 @@ import { DashboardService } from './dashboard.service';
     styleUrls: ['dist/dashboard/dashboard.component.css']
 })
 export class DashboardComponent {
+	projects:any = [];
+
 	constructor(private dashboardService: DashboardService) {}
 
 	ngOnInit() {
 		this.dashboardService.getProjects().subscribe(data => {
-			console.log(data);
+			this.projects = data;
 		}, error => {
 
 		})

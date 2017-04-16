@@ -10,8 +10,8 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var dashboard_component_1 = require("./dashboard.component");
-var header_module_1 = require("../common/header/header.module");
 var dashboard_service_1 = require("./dashboard.service");
+var dashboard_pipe_1 = require("./dashboard.pipe");
 var DashboardModule = (function () {
     function DashboardModule() {
     }
@@ -21,11 +21,11 @@ DashboardModule = __decorate([
     core_1.NgModule({
         imports: [
             common_1.CommonModule,
-            forms_1.FormsModule,
-            header_module_1.HeaderModule
+            forms_1.FormsModule
         ],
         declarations: [
-            dashboard_component_1.DashboardComponent
+            dashboard_component_1.DashboardComponent,
+            dashboard_pipe_1.ProjectPipe
         ],
         providers: [dashboard_service_1.DashboardService]
     })

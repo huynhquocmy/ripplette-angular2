@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var core_2 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -15,7 +16,12 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        styleUrls: ['dist/app.component.css'],
+        encapsulation: core_2.ViewEncapsulation.None,
+        styleUrls: ['dist/app.component.css',
+            'dist/assets/scss/base/base.css',
+            'dist/assets/scss/base/buttons.css',
+            'dist/assets/scss/base/fonts.css',
+            'dist/assets/scss/base/component.css'],
         template: "\n  \t<alert></alert>\n  \t<layout-header></layout-header>\n    <router-outlet></router-outlet>\n  "
     })
 ], AppComponent);

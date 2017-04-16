@@ -1,3 +1,32 @@
 <div class="dashboard-container">
-	<layout-header></layout-header>
+	<div class="welcome-container">
+		<h1 class="welcome-title">Create Amazing Social Media Driven Sites</h1>
+		<p class="welcome-des">Ripplette allows you to connect, grab and organize social media content from the most popular platforms,
+		<br>integrates all your content into a site, and allows you to customize it however you want!
+        </p>
+        <div class="welcome-button">
+        	<button class="btn--blue">
+        		<span>Create a New Social Media Driven Site</span>
+        	</button>
+        </div>
+	</div>
+	<div class="projects-container">
+		<h1 class="projects-title">PUBLISHED SITES</h1>
+		<div class="projects-list">
+			<div class="item-5 project-item" *ngFor="let project of projects | sites">
+				<div class="project-icon">
+					<img src="{{project.screenshot.data.manipulations.original.url}}">
+					<div class="mask-box"></div>
+				</div>
+				<div class="project-footer">
+					<div class="project-name">{{project.name}}</div>
+				</div>
+				<div class="project-mask">
+					<div class="project-mask-overlay"></div>
+					<div class="project-mask-item project-mask-edit">Edit</div>
+					<div class="project-mask-item project-mask-unpublish">Unpublish</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
