@@ -8,21 +8,26 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 
-export class DashboardService {
-	
-	private projectsUrl = AppSettings.apiURI + 'api/dashboard';
+export class SiteService {
+
+	private projectUrl = AppSettings.apiURI + 'api/project/';
 
 	constructor(private http: HttpService) {}
 
-	getProjects() {
-		return this.http.get(this.projectsUrl)
+	getProject(id:string) {
+		let url = this.projectUrl + id;
+		return this.http.get(url)
 		.map((response: Response) => {
 			let body = response.json();
 			return body.data || {}
-		});
+		})
 	}
 
-	ngOnInit() {
-
+	getPage(id: string) {
+		let url = this.projectUrl + id + '/page';
+		return this.http.get(url).map((response: Response) => {
+			let body = response.json();
+			return body.data || {};
+		})
 	}
 }

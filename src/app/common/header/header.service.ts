@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs/Subject';
-import { Router, NavigationStart } from '@angular/router';
+import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 
 @Injectable()
 
@@ -11,7 +11,12 @@ export class HeaderService {
 
 	constructor(private router: Router) {
 		router.events.subscribe(event => {
-			if (event instanceof NavigationStart) {
+			// if (event instanceof NavigationStart) {
+			// 	let user = JSON.parse(localStorage.getItem('currentUser'));
+			// 	this.subject.next(user);
+			// }
+
+			if (event instanceof NavigationEnd) {
 				let user = JSON.parse(localStorage.getItem('currentUser'));
 				this.subject.next(user);
 			}

@@ -14,25 +14,31 @@ var http_service_1 = require("../_services/http.service");
 var app_settings_1 = require("../app.settings");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/map");
-var DashboardService = (function () {
-    function DashboardService(http) {
+var SiteService = (function () {
+    function SiteService(http) {
         this.http = http;
-        this.projectsUrl = app_settings_1.AppSettings.apiURI + 'api/dashboard';
+        this.projectUrl = app_settings_1.AppSettings.apiURI + 'api/project/';
     }
-    DashboardService.prototype.getProjects = function () {
-        return this.http.get(this.projectsUrl)
+    SiteService.prototype.getProject = function (id) {
+        var url = this.projectUrl + id;
+        return this.http.get(url)
             .map(function (response) {
             var body = response.json();
             return body.data || {};
         });
     };
-    DashboardService.prototype.ngOnInit = function () {
+    SiteService.prototype.getPage = function (id) {
+        var url = this.projectUrl + id + '/page';
+        return this.http.get(url).map(function (response) {
+            var body = response.json();
+            return body.data || {};
+        });
     };
-    return DashboardService;
+    return SiteService;
 }());
-DashboardService = __decorate([
+SiteService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_service_1.HttpService])
-], DashboardService);
-exports.DashboardService = DashboardService;
-//# sourceMappingURL=dashboard.service.js.map
+], SiteService);
+exports.SiteService = SiteService;
+//# sourceMappingURL=site.service.js.map

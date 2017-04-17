@@ -10,29 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var http_service_1 = require("../_services/http.service");
-var app_settings_1 = require("../app.settings");
+var http_service_1 = require("../../_services/http.service");
+var app_settings_1 = require("../../app.settings");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/map");
-var DashboardService = (function () {
-    function DashboardService(http) {
+var MenuService = (function () {
+    function MenuService(http) {
         this.http = http;
-        this.projectsUrl = app_settings_1.AppSettings.apiURI + 'api/dashboard';
+        this.projectUrl = app_settings_1.AppSettings.apiURI + 'api/project/';
     }
-    DashboardService.prototype.getProjects = function () {
-        return this.http.get(this.projectsUrl)
-            .map(function (response) {
+    MenuService.prototype.getMenu = function (id) {
+        var url = this.projectUrl + id + '/menu';
+        return this.http.get(url).map(function (response) {
             var body = response.json();
             return body.data || {};
         });
     };
-    DashboardService.prototype.ngOnInit = function () {
-    };
-    return DashboardService;
+    return MenuService;
 }());
-DashboardService = __decorate([
+MenuService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_service_1.HttpService])
-], DashboardService);
-exports.DashboardService = DashboardService;
-//# sourceMappingURL=dashboard.service.js.map
+], MenuService);
+exports.MenuService = MenuService;
+//# sourceMappingURL=menu.service.js.map

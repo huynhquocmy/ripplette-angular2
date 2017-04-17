@@ -7,23 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var core_2 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var PageComponent = (function () {
+    function PageComponent() {
     }
-    return AppComponent;
+    return PageComponent;
 }());
-AppComponent = __decorate([
+PageComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        encapsulation: core_2.ViewEncapsulation.None,
-        styleUrls: ['dist/app.component.css',
-            'dist/assets/scss/base/base.css',
-            'dist/assets/scss/base/buttons.css',
-            'dist/assets/scss/base/fonts.css',
-            'dist/assets/scss/base/component.css'],
-        template: "\n  \t<alert></alert>\n    <layout-header></layout-header>\n    <router-outlet></router-outlet>\n  "
+        selector: 'page',
+        templateUrl: 'app/site/page/page.component.html',
+        styleUrls: ['dist/site/page/page.component.css']
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], PageComponent);
+exports.PageComponent = PageComponent;
+//# sourceMappingURL=page.component.js.map

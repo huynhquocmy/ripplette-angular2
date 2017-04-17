@@ -10,33 +10,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var dashboard_service_1 = require("./dashboard.service");
+var menu_service_1 = require("./menu.service");
 var router_1 = require("@angular/router");
-var DashboardComponent = (function () {
-    function DashboardComponent(dashboardService, router) {
-        this.dashboardService = dashboardService;
-        this.router = router;
-        this.projects = [];
+var MenuComponent = (function () {
+    function MenuComponent(menuService, route) {
+        this.menuService = menuService;
+        this.route = route;
     }
-    DashboardComponent.prototype.ngOnInit = function () {
+    ;
+    MenuComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.dashboardService.getProjects().subscribe(function (data) {
-            _this.projects = data;
-        }, function (error) {
+        this.sub = this.route.params.subscribe(function (params) {
+            _this.id = params['projectid'];
+        });
+        this.menuService.getMenu(this.id).subscribe(function (res) {
+            console.log(res);
         });
     };
-    DashboardComponent.prototype.onSelect = function (project) {
-        this.router.navigate(['site', project.id]);
-    };
-    return DashboardComponent;
+    return MenuComponent;
 }());
-DashboardComponent = __decorate([
+MenuComponent = __decorate([
     core_1.Component({
-        templateUrl: 'app/dashboard/dashboard.component.html',
-        styleUrls: ['dist/dashboard/dashboard.component.css']
+        selector: 'site-menu',
+        templateUrl: 'app/site/menu/menu.component.html',
+        styleUrls: ['dist/site/menu/menu.component.css']
     }),
-    __metadata("design:paramtypes", [dashboard_service_1.DashboardService,
-        router_1.Router])
-], DashboardComponent);
-exports.DashboardComponent = DashboardComponent;
-//# sourceMappingURL=dashboard.component.js.map
+    __metadata("design:paramtypes", [menu_service_1.MenuService,
+        router_1.ActivatedRoute])
+], MenuComponent);
+exports.MenuComponent = MenuComponent;
+//# sourceMappingURL=menu.component.js.map

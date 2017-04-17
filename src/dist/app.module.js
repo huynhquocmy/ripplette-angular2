@@ -18,6 +18,7 @@ var dashboard_module_1 = require("./dashboard/dashboard.module");
 var default_request_options_service_1 = require("./default-request-options.service");
 var http_service_1 = require("./_services/http.service");
 var alert_module_1 = require("./common/alert/alert.module");
+var site_module_1 = require("./site/site.module");
 var header_module_1 = require("./common/header/header.module");
 var AppModule = (function () {
     function AppModule() {
@@ -36,6 +37,7 @@ AppModule = __decorate([
             forms_1.FormsModule,
             login_module_1.LoginModule,
             dashboard_module_1.DashboardModule,
+            site_module_1.SiteModule,
             app_routing_module_1.AppRoutingModule
         ],
         declarations: [

@@ -13,13 +13,23 @@ var core_1 = require("@angular/core");
 var header_service_1 = require("./header.service");
 var router_1 = require("@angular/router");
 var HeaderComponent = (function () {
-    function HeaderComponent(headerService, router) {
+    function HeaderComponent(headerService, router, route) {
         this.headerService = headerService;
         this.router = router;
+        this.route = route;
+        this.hasHeader = true;
+        this.path = ['/dashboard'];
     }
     HeaderComponent.prototype.ngOnInit = function () {
         var _this = this;
+        var _me = this;
         this.headerService.getLoggedUser().subscribe(function (user) {
+            if (_me.path.indexOf(_me.router.url) === -1) {
+                _me.hasHeader = false;
+            }
+            else {
+                _me.hasHeader = true;
+            }
             _this.user = user;
         });
     };
@@ -35,7 +45,9 @@ HeaderComponent = __decorate([
         selector: 'layout-header',
         styleUrls: ['dist/common/header/header.component.css']
     }),
-    __metadata("design:paramtypes", [header_service_1.HeaderService, router_1.Router])
+    __metadata("design:paramtypes", [header_service_1.HeaderService,
+        router_1.Router,
+        router_1.ActivatedRoute])
 ], HeaderComponent);
 exports.HeaderComponent = HeaderComponent;
 ;

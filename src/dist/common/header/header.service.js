@@ -19,7 +19,11 @@ var HeaderService = (function () {
         this.subject = new Subject_1.Subject();
         this.keepAfterNavigationChange = false;
         router.events.subscribe(function (event) {
-            if (event instanceof router_1.NavigationStart) {
+            // if (event instanceof NavigationStart) {
+            // 	let user = JSON.parse(localStorage.getItem('currentUser'));
+            // 	this.subject.next(user);
+            // }
+            if (event instanceof router_1.NavigationEnd) {
                 var user = JSON.parse(localStorage.getItem('currentUser'));
                 _this.subject.next(user);
             }

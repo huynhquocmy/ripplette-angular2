@@ -11,7 +11,7 @@ import { ViewEncapsulation } from '@angular/core';
   			'dist/assets/scss/base/component.css'],
   template: `
   	<alert></alert>
-  	<layout-header></layout-header>
+    <layout-header></layout-header>
     <router-outlet></router-outlet>
   `
 })

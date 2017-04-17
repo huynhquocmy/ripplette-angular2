@@ -10,8 +10,8 @@ import { DashboardModule }   from './dashboard/dashboard.module';
 import { requestOptionsProvider }   from './default-request-options.service';
 import { HttpService } from './_services/http.service';
 import { AlertModule } from './common/alert/alert.module';
+import { SiteModule } from './site/site.module';
 import { HeaderModule } from './common/header/header.module';
-
 
 @NgModule({
   imports: [
@@ -24,6 +24,7 @@ import { HeaderModule } from './common/header/header.module';
     FormsModule,
     LoginModule,
     DashboardModule,
+    SiteModule,
     AppRoutingModule
   ],
   declarations: [

@@ -1,4 +1,6 @@
+
 <div class="dashboard-container">
+	
 	<div class="welcome-container">
 		<h1 class="welcome-title">Create Amazing Social Media Driven Sites</h1>
 		<p class="welcome-des">Ripplette allows you to connect, grab and organize social media content from the most popular platforms,
@@ -13,7 +15,7 @@
 	<div class="projects-container">
 		<h1 class="projects-title">PUBLISHED SITES</h1>
 		<div class="projects-list">
-			<div class="item-5 project-item" *ngFor="let project of projects | sites">
+			<div class="item-5 project-item" (click)="onSelect(project)" *ngFor="let project of projects | sites">
 				<div class="project-icon">
 					<img src="{{project.screenshot.data.manipulations.original.url}}">
 					<div class="mask-box"></div>
